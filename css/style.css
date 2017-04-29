@@ -1,0 +1,61 @@
+
+.big#searchform {
+    position: fixed !important
+}
+
+.sfbgx {
+    position: fixed !important;
+    z-index: 80 !important;
+}
+
+.srp #searchform {
+    position: fixed !important;
+}
+
+.infinite-scroll-animate {
+    position: relative;
+}
+
+#res h3.r.infinite-scroll-page {
+    /*position: absolute;*/
+    /*left: -125px;*/
+    /*width: 115px;*/
+    /*text-align: right;*/
+    color: #999;
+
+    /*font-size: 0.9em;*/
+    /*margin-top: 0.11em;*/
+    font-size: 12px;
+    /*margin-top: 3px;*/
+
+    position: static!important;
+    text-align: center!important;
+    width: 100%!important;
+    margin: -10px 0 18px!important;
+    top: 0;
+    left: 0!important;
+}
+
+#res h3.r.infinite-scroll-page::after {
+    position: absolute;
+    top: 6px;
+    left: 55%;
+    border-top: 1px solid #ddd;
+    content: "";
+    display: block;
+    right: 0;
+}
+
+#res h3.r.infinite-scroll-page::before {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    border-top: 1px solid #ddd;
+    content: "";
+    display: block;
+    right: 55%;
+}
+
+#rso {
+    position: relative;
+}
