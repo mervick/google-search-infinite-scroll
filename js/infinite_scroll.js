@@ -78,10 +78,10 @@
 
               $.get(href, function (data) {
 
-                var jData = $(data),
-                  rsoAppend = jData.find("#rso"),
+                var $data = $(data),
+                  rsoAppend = $data.find("#rso"),
                   toAppend,
-                  nextAnchor = jData.find("#pnnext");
+                  nextAnchor = $data.find("#pnnext");
 
                 if (rsoAppend && rsoAppend[0] && rsoAppend[0].childElementCount) {
 
@@ -93,14 +93,24 @@
                       return false;
                     }
                   });
+                  
+                  rsoAppend.find("g-section-with-header").each(function() {
+                    var $e = $(this),
+                      h3 = $e.find("h3 > a");
+                    if (h3[0] && h3.text().trim().match(/^Images\sfor\s/i)) {
+                      $e.parent().nextAll().remove();
+                    }
+                  });
+
+                  rsoAppend.find("g-scrolling-carousel").remove();
 
                   toAppend = '<div class="infinite-scroll-animate infinite-scroll-hidden">' +
-                    // '<h3 class="infinite-scroll-page r">' + (page - 9) + '.</h3>' +
+                    '<h3 class="infinite-scroll-page r"><a href="' + href + '" title="Open in new tab" target=_blank> ' + (page - 9) + '</a></h3>' +
                     rsoAppend.html() +
                     "</div>";
 
                 } else {
-                  var form = jData.find("form[action=index]");
+                  var form = $data.find("form[action=index]");
                   if (form && form[0]) {
                     rso.append(form.html());
                   }
@@ -109,11 +119,11 @@
                 if (nextAnchor) {
                   rso.append(toAppend);
 
-                  jData.find("style").each(function() {
+                  $data.find("style").each(function() {
                     rso.append($(this));
                   });
 
-                  $("#foot").replaceWith(jData.find("#foot"));
+                  $("#foot").replaceWith($data.find("#foot"));
                 } else {
                   page = null;
                 }
