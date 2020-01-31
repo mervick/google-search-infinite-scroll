@@ -31,7 +31,8 @@
   position: static!important;
   text-align: center!important;
   width: 100%!important;
-  margin: -10px 0 18px!important;
+  /*margin: -10px 0 18px!important;*/
+  margin: -20px 0px 8px !important;
   top: 0;
   left: 0!important;
 }
